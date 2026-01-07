@@ -23,6 +23,57 @@ jobs:
         working-directory: ./audit-lighthouse
         run: npm ci
 
+      - name: Install Chrome/Chromium
+        run: |
+          # Check if Chrome is already installed (GitHub Actions)
+          if command -v google-chrome &> /dev/null; then
+            echo "Chrome found at: $(which google-chrome)"
+            echo "CHROME_PATH=$(which google-chrome)" >> $GITHUB_ENV
+          elif command -v chromium-browser &> /dev/null; then
+            echo "Chromium found at: $(which chromium-browser)"
+            echo "CHROME_PATH=$(which chromium-browser)" >> $GITHUB_ENV
+          else
+            echo "Installing Chromium and dependencies..."
+            sudo apt-get update
+            # Install Chromium dependencies
+            sudo apt-get install -y \
+              chromium-browser \
+              libnss3 \
+              libatk-bridge2.0-0 \
+              libdrm2 \
+              libxkbcommon0 \
+              libxcomposite1 \
+              libxdamage1 \
+              libxfixes3 \
+              libxrandr2 \
+              libgbm1 \
+              libasound2 \
+              libpango-1.0-0 \
+              libcairo2 \
+              libatk1.0-0 \
+              libatspi2.0-0 \
+              libx11-6 \
+              libx11-xcb1 \
+              libxcb1 \
+              libxcb-dri3-0 \
+              libxcb-xfixes0 \
+              libxshmfence1 || true
+            # Try to find Chromium
+            if command -v chromium-browser &> /dev/null; then
+              echo "CHROME_PATH=$(which chromium-browser)" >> $GITHUB_ENV
+            elif command -v chromium &> /dev/null; then
+              echo "CHROME_PATH=$(which chromium)" >> $GITHUB_ENV
+            elif [ -f /usr/bin/chromium-browser ]; then
+              echo "CHROME_PATH=/usr/bin/chromium-browser" >> $GITHUB_ENV
+            elif [ -f /usr/bin/chromium ]; then
+              echo "CHROME_PATH=/usr/bin/chromium" >> $GITHUB_ENV
+            else
+              echo "Failed to find Chromium after installation"
+              exit 1
+            fi
+          fi
+          echo "CHROME_PATH is set to: $CHROME_PATH"
+
       - name: Run Lighthouse audit
         working-directory: ./audit-lighthouse
         run: node audit.js audit-sites/mbg.json
