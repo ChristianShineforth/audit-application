@@ -1,0 +1,27 @@
+{
+    "base": "https://www.scooterscoffee.com",
+    "paths": [
+        "/",
+        "/collections",
+        "/collections/all",
+        "/collections/conservation",
+        "/products/007-creeping-bentgrass",
+        "/pages/our-story",
+        "/pages/product-quiz",
+        "/pages/area-calculator",
+        "/pages/wholesale-registration-form",
+        "/pages/crp-request-form",
+        "/pages/resources",
+        "/pages/contractors-iowa-dot",
+        "/blogs/articles",
+        "/blogs/articles/introduction-to-nick-christians",
+        "/pages/contact",
+        "/cart",
+        "/account/register",
+        "/search",
+        "/policies/terms-of-service",
+        "/policies/privacy-policy",
+        "/policies/shipping-policy",
+        "/policies/refund-policy"
+    ]
+}

@@ -1,0 +1,27 @@
+{
+  "base": "https://franchising.scooterscoffee.com/",
+  "paths": [
+    "/",
+    "/coffee-drive-thru-model-menu/",
+    "/coffee-franchise-cost/",
+    "/coffee-franchise-opportunity/",
+    "/coffee-kiosk-franchise/",
+    "/contact/",
+    "/development-areas/",
+    "/drive-thru-franchise/",
+    "/drive-thru-franchises/",
+    "/franchise-blog/",
+    "/franchise-faq/",
+    "/franchise-leadership-team/",
+    "/franchise-models/",
+    "/franchise-opportunities/",
+    "/franchise-partnerships/",
+    "/franchise-process/",
+    "/franchise-training-support/",
+    "/investment/",
+    "/our-menu/",
+    "/our-products/",
+    "/privacy-policy/",
+    "/testimonials/"
+  ]
+}

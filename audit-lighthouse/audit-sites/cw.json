@@ -1,0 +1,31 @@
+{
+    "base": "https://www.condo-world.com",
+    "paths": [
+      "/",
+      "/contact",
+      "/dashboard",
+      "/favorites",
+      "/myrtle-beach",
+      "/myrtle-beach/penthouses",
+      "/myrtle-beach/rentals",
+      "/myrtle-beach/rentals/breakers-resort",
+      "/myrtle-beach/resorts",
+      "/myrtle-beach/travel-guides/accessible-condos",
+      "/myrtle-beach/travel-guides/bike-week",
+      "/myrtle-beach/vacation-rentals",
+      "/north-myrtle-beach",
+      "/north-myrtle-beach/condos",
+      "/north-myrtle-beach/rental-management",
+      "/north-myrtle-beach/rentals",
+      "/north-myrtle-beach/resorts",
+      "/north-myrtle-beach/travel-guides/hidden-gems",
+      "/north-myrtle-beach/travel-guides/sos-north-myrtle-beach",
+      "/north-myrtle-beach/units/arbor-trace-612",
+      "/north-myrtle-beach/units/ashworth-1004",
+      "/privacy-policy",
+      "/reviews",
+      "/team",
+      "/web-accessibility-statement",
+      "/webcam"
+    ]
+  }

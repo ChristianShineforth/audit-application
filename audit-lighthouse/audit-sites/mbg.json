@@ -1,0 +1,20 @@
+{
+    "base": "https://www.mbgolf.com",
+    "paths": [
+      "/",
+      "/blog",
+      "/blog/a-hole-to-behold",
+      "/blog/teed-off-podcast-episode-1",
+      "/contact-us",
+      "/faq",
+      "/golf-condos",
+      "/golf-condos/barefoot-resort-golf-course-villas",
+      "/golf-courses",
+      "/golf-courses/aberdeen",
+      "/golf-packages",
+      "/golf-packages/book",
+      "/package-summary",
+      "/privacy-policy",
+      "/tee-times"
+    ]
+  }
