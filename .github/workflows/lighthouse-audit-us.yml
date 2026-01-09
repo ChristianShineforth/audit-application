@@ -106,7 +106,7 @@ jobs:
           echo "## Lighthouse Audit Complete ✅" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Config:** audit-sites/us.json" >> $GITHUB_STEP_SUMMARY
-          echo "**Base URL:** https://www.scooterscoffee.com" >> $GITHUB_STEP_SUMMARY
+          echo "**Base URL:** https://www.unitedseeds.com" >> $GITHUB_STEP_SUMMARY
           echo "**Run Number:** ${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "📥 Download the reports from the artifacts section above." >> $GITHUB_STEP_SUMMARY

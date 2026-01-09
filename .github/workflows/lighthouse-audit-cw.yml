@@ -106,7 +106,7 @@ jobs:
           echo "## Lighthouse Audit Complete ✅" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Config:** audit-sites/cw.json" >> $GITHUB_STEP_SUMMARY
-          echo "**Base URL:** https://www.staging.condo-world.com" >> $GITHUB_STEP_SUMMARY
+          echo "**Base URL:** https://www.condo-world.com" >> $GITHUB_STEP_SUMMARY
           echo "**Run Number:** ${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "📥 Download the reports from the artifacts section above." >> $GITHUB_STEP_SUMMARY
