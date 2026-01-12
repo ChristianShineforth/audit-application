@@ -1,4 +1,4 @@
-name: Lighthouse Audit - CW
+name: Lighthouse Audit + N8N - MBG Test
 
 on:
   workflow_dispatch:  # Allows manual triggering from GitHub UI
@@ -92,6 +92,38 @@ jobs:
       - name: Run Lighthouse audit
         working-directory: ./audit-lighthouse
         run: node audit.js audit-sites/mbg-test.json
+
+      - name: Send reports to n8n (create ClickUp tickets)
+        env:
+          N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL }}
+        run: |
+          set -euo pipefail
+
+          REPORT_DIR="audit-lighthouse/reports"
+          if [ ! -d "$REPORT_DIR" ]; then
+            echo "Reports directory not found: $REPORT_DIR"
+            exit 1
+          fi
+
+          mapfile -t files < <(find "$REPORT_DIR" -type f -name "*.html" | sort)
+
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "No HTML reports found in $REPORT_DIR"
+            exit 0
+          fi
+
+          echo "Posting ${#files[@]} HTML report(s) to n8n..."
+          args=()
+          for f in "${files[@]}"; do
+            args+=(-F "file=@${f}")
+          done
+
+          curl -sS -X POST \
+            "${args[@]}" \
+            "$N8N_WEBHOOK_URL" \
+            | tee n8n_response.json
+
+          echo "n8n response saved to n8n_response.json"
 
       - name: Upload reports as artifact
         uses: actions/upload-artifact@v4
