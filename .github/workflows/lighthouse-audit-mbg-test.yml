@@ -99,6 +99,22 @@ jobs:
         run: |
           set -euo pipefail
 
+          N8N_URL="$(printf '%s' "${N8N_WEBHOOK_URL:-}" | tr -d '\r\n' | xargs)"
+
+          if [ -z "$N8N_URL" ]; then
+            echo "ERROR: N8N_WEBHOOK_URL is empty. Check your repo secret name/value."
+            exit 1
+          fi
+
+          case "$N8N_URL" in
+            https://*) ;;
+            *)
+              echo "ERROR: N8N_WEBHOOK_URL must start with https://"
+              echo "Got (length ${#N8N_URL}): $(printf '%s' "$N8N_URL" | sed 's/./*/g')"
+              exit 1
+              ;;
+          esac
+
           REPORT_DIR="audit-lighthouse/reports"
           if [ ! -d "$REPORT_DIR" ]; then
             echo "Reports directory not found: $REPORT_DIR"
