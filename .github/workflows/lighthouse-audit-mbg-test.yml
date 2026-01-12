@@ -6,6 +6,7 @@ on:
 jobs:
   lighthouse-audit:
     runs-on: ubuntu-latest
+    environment: N8N_WEBHOOK_URL
     timeout-minutes: 90  # Set timeout to 90 minutes (29 paths × 2 configs = 58 reports)
     
     steps:
