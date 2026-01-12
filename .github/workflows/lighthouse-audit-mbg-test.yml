@@ -95,7 +95,7 @@ jobs:
 
       - name: Send reports to n8n (create ClickUp tickets)
         env:
-          N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL }}
+          N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL || vars.N8N_WEBHOOK_URL }}
         run: |
           set -euo pipefail
 
